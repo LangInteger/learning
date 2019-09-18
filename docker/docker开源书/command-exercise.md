@@ -46,7 +46,12 @@ From [docker reference - entrypoint](https://docs.docker.com/engine/reference/bu
 - [SO-Thread: How to start a stopped Docker container with a different command?
 ](https://stackoverflow.com/questions/32353055/how-to-start-a-stopped-docker-container-with-a-different-command)
 
+### 2.4 为何刚启动的 container 马上就停止了
 
+- [SO-Thread: Why docker container exits immediately
+](https://stackoverflow.com/questions/28212380/why-docker-container-exits-immediately)
+
+A docker container exits when its main process finishes.
 
 ## 3. 参考资料
 
