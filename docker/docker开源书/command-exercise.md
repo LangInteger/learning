@@ -7,6 +7,7 @@
 - docker run -d: Run container in background and print container ID
 - docker run -i: Keep STDIN open even if not attached
 - docker run -t: Allocate a pseudo-TTY
+- docker run -e: set environment variables
 
 ### 1.2 ENTRYPOINT & CMD
 
@@ -32,6 +33,13 @@ From [docker reference - entrypoint](https://docs.docker.com/engine/reference/bu
 更多资料：
 
 - [SO-Thread: Why do you need to put #!/bin/bash at the beginning of a script file?](https://stackoverflow.com/questions/8967902/why-do-you-need-to-put-bin-bash-at-the-beginning-of-a-script-file)
+
+### 2.2 跑一个 mariadb
+
+- docker pull mariadb
+- docker run --name my-mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:latest
+- docker exec -it my-mariadb  bash
+- docker stop my-mariadb
 
 ## 3. 参考资料
 
