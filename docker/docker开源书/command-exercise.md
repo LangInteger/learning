@@ -37,9 +37,16 @@ From [docker reference - entrypoint](https://docs.docker.com/engine/reference/bu
 ### 2.2 跑一个 mariadb
 
 - docker pull mariadb
-- docker run --name my-mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:latest
+- docker run --name my-mariadb -e MYSQL_ROOT_PASSWORD=root -idt -p 3306:3306 mariadb:latest
 - docker exec -it my-mariadb  bash
 - docker stop my-mariadb
+
+### 2.3 使用新的命令参数启动停止的 docker container
+
+- [SO-Thread: How to start a stopped Docker container with a different command?
+](https://stackoverflow.com/questions/32353055/how-to-start-a-stopped-docker-container-with-a-different-command)
+
+
 
 ## 3. 参考资料
 
