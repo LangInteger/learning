@@ -23,4 +23,3 @@
 - exit: exit the shell
 - sudo: DANGER! become super user root DANGER!
 
-Drill, drill, drill! Drill until you can say these phrases right away when you see that word. Then drill the inverse, so that you read the phrase and know what command will do that. You're building your vocabulary by doing this, but don't spend so much time you go nuts and get bored.
