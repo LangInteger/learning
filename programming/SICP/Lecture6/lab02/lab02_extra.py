@@ -35,7 +35,7 @@ def composite_identity(f, g):
     >>> b1(4)                            # (4 + 1)^2 != 4^2 + 1
     False
     """
-    "*** YOUR CODE HERE ***"
+    return lambda x: compose1(f, g)(x) == compose1(g, f)(x)
 
 def count_cond(condition):
     """Returns a function with one parameter N that counts all the numbers from
@@ -63,6 +63,14 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def count_cond_with_counter(index, max, result):
+        if (index > max):
+            return result
+        newResult = result + 1 if condition(max, index) else result
+        return count_cond_with_counter(index + 1, max, newResult)
+    def count_cond_to_n(n):
+        return count_cond_with_counter(1, n, 0)
+    return count_cond_to_n
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
@@ -91,3 +99,20 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    def execution(n):
+        def inner(x):
+            nonlocal n
+            result = x
+            while (n > 0):
+                n = n - 1
+                if (n >= 0):
+                    result = f1(result)
+                n = n - 1
+                if (n >= 0):
+                    result = f2(result)
+                n = n - 1
+                if (n >= 0):
+                    result = f3(result)
+            return result
+        return inner
+    return execution
