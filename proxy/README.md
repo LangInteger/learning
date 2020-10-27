@@ -50,3 +50,7 @@ reboot
 csrutil disable
 reboot
 ```
+
+## 5 Gradle
+
+- gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7890 clean build
