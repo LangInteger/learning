@@ -41,3 +41,12 @@ To remove
 
 - https://github.com/rofl0r/proxychains-ng/issues/78
 - https://github.com/rofl0r/proxychains-ng/issues/210
+
+```text
+reboot
+# Hold option Key
+# press Command + R when system recovery screen presents.
+# Choose language, click Terminal of Utilities from top bar
+csrutil disable
+reboot
+```
