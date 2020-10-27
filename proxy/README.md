@@ -1,6 +1,6 @@
 # Proxy
 
-## Shadowsocks Proxy
+## 1 Shadowsocks Proxy
 
 ### Server side
 
@@ -13,11 +13,11 @@
 - Install Shadowsocks Client, e.g. run `brew cask install shadowsocksx` in Mac OSX.
 - SwitchSharp
 
-## Homebrew
+## 2 Homebrew
 
 - $ ALL_PROXY=socks5://127.0.0.1:9001 brew upgrade
 
-## git
+## 3 git
 
 For` https://` and `http://(e.g. http://github.com, https://github.com)`, run the following script.
 
@@ -34,3 +34,10 @@ For ssh (e.g. `git@github.com,ssh://git@github.com`)
 To remove
 
 - git config --global --unset http.proxy
+
+## 4 ProxyChains
+
+### Not work with OSX
+
+- https://github.com/rofl0r/proxychains-ng/issues/78
+- https://github.com/rofl0r/proxychains-ng/issues/210
