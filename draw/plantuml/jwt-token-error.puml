@@ -1,0 +1,60 @@
+@startuml
+
+actor user
+participant gateway
+participant auth_service
+participant business_service
+
+user -> gateway: 发起请求
+activate user
+
+gateway -> auth_service: 请求授权信息
+activate gateway
+
+activate auth_service
+auth_service -> gateway: 返回身份信息
+deactivate auth_service
+
+
+gateway -> gateway: 颁发JWT Token，存入issueAt、身份信息
+  note over gateway
+  TIME: 20:10:50
+  end note
+activate gateway
+deactivate gateway
+
+gateway -> business_service: 转发请求至业务服务
+activate business_service
+
+business_service -> business_service: 解析JWT Token
+activate business_service
+deactivate business_service
+
+alt decode jwt successfully, issueAt <= current
+
+  note over business_service
+  TIME: 20:10:51
+  end note
+
+  business_service -> business_service: 处理请求
+  activate business_service
+
+  business_service -> gateway: 响应请求(正常结果)
+  deactivate business_service
+
+else docode jwt fail, issueAt > current
+
+  note over business_service
+  TIME: 20:10:49
+  end note
+
+  business_service -> gateway: 响应请求（code:401; message: 您尚未登陆）
+  deactivate business_service
+
+end
+
+gateway -> user: 响应请求
+deactivate gateway
+deactivate user
+
+@enduml
