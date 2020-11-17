@@ -1,0 +1,29 @@
+@startuml
+
+skinparam componentStyle rectangle
+
+package "Database Before Operation" as DBO {
+  [flyway_schema_history] as fsh_1
+  [Table1] as table1_1
+  [Table2] as table2_1
+}
+
+fsh_1 -[hidden]-> table1_1
+table2_1 -[hidden]> table1_1
+
+package "Database After Operation" as DAO {
+  [flyway_schema_history] as fsh_2
+}
+
+package "flyway clean" as OP {
+}
+
+table1_1 -[hidden]> OP 
+OP -[hidden]-> DAO
+
+DBO -> OP
+OP -> DAO
+
+note left of fsh_2: Only metadata table exists now
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+
+skinparam componentStyle rectangle
+
+package "Database Before Operation" as DBO {
+  [flyway_schema_history] as fsh_1
+  [Table1] as table1_1
+  [Table2] as table2_1
+}
+
+fsh_1 -[hidden]-> table1_1
+table2_1 -[hidden]> table1_1
+
+package "Database After Operation" as DAO {
+  [flyway_schema_history] as fsh_2
+  [Table1] as table1_2
+  [Table2] as table2_2
+  [Table3] as table3_2
+}
+
+fsh_2 -[hidden]-> table1_2
+table2_2 -[hidden]> table1_2
+
+package "flyway migrate" as OP {
+    [v2_changes.sql] as file
+}
+
+table1_1 -[hidden]> file
+file -[hidden]-> DAO
+
+DBO -> OP
+OP -> DAO
+
+note left of table3_2 : Created by Operation
+
+@enduml
