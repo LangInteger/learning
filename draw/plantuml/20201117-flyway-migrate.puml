@@ -22,7 +22,7 @@ fsh_2 -[hidden]-> table1_2
 table2_2 -[hidden]> table1_2
 
 package "flyway migrate" as OP {
-    [v2_changes.sql] as file
+    [v2__changes.sql] as file
 }
 
 table1_1 -[hidden]> file
