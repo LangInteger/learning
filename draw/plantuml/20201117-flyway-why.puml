@@ -1,0 +1,27 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor frontend_developer as front
+actor backend_developer_1 as back_1
+actor backend_developer_2 as back_2
+actor backend_developer_1 as back_3
+actor backend_developer_2 as back_4
+actor backend_developer_1 as back_5
+
+note left of front: Oooops, I got 500 from backend service...
+note right of back_1: I did nothing!
+note left of back_2: You rebase my code without sql executed!
+note right of back_3: Which version of sql should be executed?
+note left of back_4: What's the status of your databse?
+note right of back_5: Oooops, I don't know...
+
+front -[hidden]-> back_1
+front -[hidden]> back_2
+back_2 -[hidden]-> back_3
+back_2 -[hidden]> back_4
+back_4 -[hidden]-> back_5
+
+
+@enduml
