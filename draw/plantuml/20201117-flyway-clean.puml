@@ -24,6 +24,6 @@ OP -[hidden]-> DAO
 DBO -> OP
 OP -> DAO
 
-note left of DAO: A shinny-new empty schema
+note top of fsh_2: A shinny-new empty schema
 
 @enduml

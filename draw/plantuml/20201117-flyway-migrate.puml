@@ -32,5 +32,6 @@ DBO -> OP
 OP -> DAO
 
 note left of table3_2 : Created by Operation
+note top of fsh_2: Migration history is recorded here as record
 
 @enduml
