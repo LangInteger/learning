@@ -24,6 +24,6 @@ OP -[hidden]-> DAO
 DBO -> OP
 OP -> DAO
 
-note left of fsh_2: Only metadata table exists now
+note left of DAO: A shinny-new empty schema
 
 @enduml
