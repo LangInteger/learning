@@ -1,0 +1,35 @@
+@startuml
+
+skinparam componentStyle rectangle
+
+package "Database Before Operation" as DBO {
+  [flyway_schema_history] as fsh_1
+  [Table1] as table1_1
+  [Table2] as table2_1
+}
+
+table1_1 -[hidden]-> fsh_1
+table2_1 -[hidden]> table1_1
+
+package "flyway validate" as OP {
+    [v2__changes.sql] as file
+    [v3__changes.sql] as file1
+    [v4__changes.sql] as file2
+    [v5__changes.sql] as file3
+}
+
+file -[hidden]-> file1
+file1 -[hidden]-> file2
+file2 -[hidden]-> file3
+
+fsh_1 -> file
+fsh_1 -> file1
+fsh_1 -> file2
+fsh_1 -> file3
+
+note bottom of fsh_1
+  Check migration record with existing file.
+  By storing a checksum (CRC32 for SQL file) 
+  when a migration is executed
+end note
+@enduml
