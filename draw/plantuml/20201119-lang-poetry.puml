@@ -13,6 +13,7 @@
 ' card1 -[hidden]-> card2
 ' card3 -[hidden]-> card4
 
+title 🚂写于机车启动与速度保持协会成立25周年之际\nFeeling Good at the 25th Anniversary of Locomotive Start and Speed Maintenance Association\n
 skinparam monochrome true
 skinparam defaultFontName Helvetica 
 |😶|
@@ -27,6 +28,5 @@ Devotion and Working, Are What to Stand by.;
 |✨|
 :与君共睹，创事业斐然。
 Build a Miracle, With You and I.;
-
 
 @enduml
