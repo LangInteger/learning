@@ -14,8 +14,7 @@
 ' card3 -[hidden]-> card4
 
 skinparam monochrome true
-
-' skinparam style strictuml
+skinparam defaultFontName Helvetica 
 |😶|
 :资质鄙陋，常不敢妄言。
 Shallow as I, Hard to Say Hi.;
