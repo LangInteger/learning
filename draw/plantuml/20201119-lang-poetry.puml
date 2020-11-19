@@ -1,0 +1,33 @@
+@startuml
+
+' package "Yin" #LightBlue {
+'     card #LightBlue "资质鄙陋,常不敢妄言。\nShallow as I, Hard to Say Hi." as card1
+'     card #LightBlue "立身于世，靠谱与实干。\nCode as Hobby, From Day to Night." as card2
+' }
+
+' package "In" #DarkSalmon {
+'     card #DarkSalmon "闲敲代码,度日有月悬。\nDevotion and Working, Are What to Stand by." as card3
+'     card #DarkSalmon "与君共睹，创事业斐然。\nBuild a Miracle, With You and I." as card4
+' }
+
+' card1 -[hidden]-> card2
+' card3 -[hidden]-> card4
+
+skinparam monochrome true
+
+' skinparam style strictuml
+|🤐|
+:资质鄙陋，常不敢妄言。
+Shallow as I, Hard to Say Hi.;
+|🌒|
+:闲敲代码,度日有月悬。
+Devotion and Working, Are What to Stand by.;
+|🔨|
+:立身于世，靠谱与实干。
+Code as Hobby, From Day to Night.;
+|✨|
+:与君共睹，创事业斐然。
+Build a Miracle, With You and I.;
+
+
+@enduml
