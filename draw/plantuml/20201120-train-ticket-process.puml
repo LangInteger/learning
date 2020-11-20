@@ -1,0 +1,35 @@
+@startuml
+
+actor user
+actor staff
+participant 自有系统 as InnerSystem
+participant 供应商系统 as Supplier
+
+user -> InnerSystem: 点击下单
+InnerSystem -> Supplier: 发起占座
+Supplier -> InnerSystem: 占座成功
+InnerSystem -> user: 请打钱
+user -> InnerSystem: 支付
+InnerSystem -> user: 支付成功
+InnerSystem -> Supplier: 发起出票
+
+alt 出票成功
+
+Supplier -> InnerSystem: 出票成功
+InnerSystem -> InnerSystem: 订单状态为已出票、已记账
+InnerSystem -> user: 出票成功
+
+else 出票失败
+  Supplier -> InnerSystem: 出票失败，别再找我了
+  InnerSystem -> staff: 出票失败了咋整
+  staff -> InnerSystem: 我也没办法，确认出票失败
+  alt 更正前
+    InnerSystem -> InnerSystem: 置订单为待取消
+    InnerSystem -> Supplier: 申请取消订单
+    Supplier -> InnerSystem: 出票失败你取消个啥，调用取消失败
+    InnerSystem -> InnerSystem: 这里的风儿静悄悄，啥也没做
+  else 更正后
+    InnerSystem -> InnerSystem: 置订单为已取消并退款
+  end
+end
+@enduml
