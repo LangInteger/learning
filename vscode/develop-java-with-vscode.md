@@ -4,6 +4,27 @@
 
 ## 使用的插件
 
+- Language Support for Java(TM) by Red Hat
+- Lombok Annotations Support for VS Codiu
+
+## 常用操作
+
+- 文件搜索：
+  - OS X: command + p
+  - Linux: ctrl + p
+- 召唤/关闭 Terminal
+  - OS X: ctrl + `
+  - Linux: ctrl + `
+- 打开新 Terminal
+  - OS X: ctrl + shift + `
+  - Linux: ctrl + shift + `
+- 召唤/关闭左侧面板(必须先关闭 Terminal)
+  - OS X: command + b
+  - Linux: ctrl + b
+- 光标在编辑区和左侧面板间切换
+  - OS X: command + shift + e
+  - Linux: ctrl + shift + e
+
 ## 问题解决
 
 ## 1 Import Errors and More
