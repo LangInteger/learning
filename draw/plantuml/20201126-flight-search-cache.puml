@@ -1,0 +1,23 @@
+@startuml
+
+actor user
+participant 自有系统客户端 as client
+participant 自有系统后端 as innersystem
+participant 供应商系统 as supplier
+
+user -> client: 发起机票查询
+client -> innersystem: 发起缓存机票查询
+
+alt 命中缓存
+  innersystem -> client: 返回缓存结果
+  client -> user: 展示缓存结果
+else 未命中缓存
+  innersystem -> client: 返回空结果
+end
+  client -> innersystem: 调用实时机票查询接口
+  innersystem -> supplier: 实时查询机票
+  supplier -> innersystem: 返回机票查询结果
+  innersystem -> innersystem: 保存查询结果到缓存
+  innersystem -> client: 返回机票查询结果
+  client -> user: 替换界面的过期数据
+@enduml
