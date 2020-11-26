@@ -1,5 +1,3 @@
-package unionfind;
-
 public class QuickFind {
     private int[] id;
 
