@@ -40,7 +40,7 @@ WARNING：某些命令在中文输入法下无法正常工作
 - 重新加载 Window
   - OS X:
     - command + shift + P (open command palette)
-    - reload window  
+    - reload window
 
 ### 2.2 Gradle 常用操作
 
@@ -67,21 +67,39 @@ WARNING：某些命令在中文输入法下无法正常工作
   - 移动一个单词: w
   - 移动到文档开头: gg
   - 移动到文档结尾: G
-  - 向上移动5行: 5j
+  - 向上移动 5 行: 5j
   - 移动到屏幕顶端: H
   - 移动到屏幕中部: M
   - 移动到屏幕底部: L
   - 向下半页: ctrl + f
   - 向上半页: ctrl + b
   - 将光标所在处置为屏幕中部: zz
-  - 将光标移动到当前行的第一个x字符: fx
-  - 将光标移动到当前行的第3个x字符: 3fx
+  - 将光标移动到当前行的第一个 x 字符: fx
+  - 将光标移动到当前行的第 3 个 x 字符: 3fx
 
 ### 3.2 代码格式化
+
+配置：
 
 - 打开命令窗口：command + shift + p
 - 执行指定格式配置文件位置命令：Java:Open Java formatter settings
 - 指定格式配置文件位置：/Users/annoyingbanana/IdeaProjects/cntehang/quality_assurance/config/checkstyle/checkstyle.xml
+
+使用：
+
+- 执行代码格式化操作：shift + alt + f
+- 保存文件时自动执行格式化操作：
+  - 设置
+  - 搜索 format
+  - 勾选：Editor: Format on Save
+
+### 3.3 管理文件包引用
+
+- 整理当前文件的引用，清除无用引用：shift + alt + o
+- 保存文件时自动执行引用清理操作：
+  - 设置
+  - 搜索 import
+  - 勾选 Java > Save Actions: Organize Imports
 
 ## 4 疑难杂症
 
@@ -89,7 +107,7 @@ WARNING：某些命令在中文输入法下无法正常工作
 
 解决方案:
 
-- rm -rf $HOME/Library/Application\ Support/Code/User/workspaceStorage/*
+- rm -rf $HOME/Library/Application\ Support/Code/User/workspaceStorage/\*
 
 参考:
 
