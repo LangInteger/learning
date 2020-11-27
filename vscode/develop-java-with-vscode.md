@@ -37,6 +37,11 @@ WARNING：某些命令在中文输入法下无法正常工作
   - OS X: command + alt + 左箭头/右箭头
 - 查找引用/转到定义
   - OS X: command + b
+- 重新加载 Window
+  - OS X: 
+    - ctrl + shift + P (open command palette)
+    - reload window
+  
 
 ### 2.2 Gradle 日常操作
 
@@ -46,8 +51,30 @@ WARNING：某些命令在中文输入法下无法正常工作
 - 执行测试: gradle clean test integrationTest
 - 执行 pmdMain 检查：gradle clean pmdMain
 - 执行某些单元测试（支持通配符）: gradle test --tests xxx
-- 执行某些集成测试: gradle integrationTest --tests xxx
+- 执行某些集成测试（支持通配符）: gradle integrationTest --tests xxx
 - 在本地启动服务: gradle bootRun
+
+### 2.3 编辑器常用操作（进阶）
+
+搭配 VIM 的编辑器常用操作
+
+- 进入命令模式：英文冒号
+- 设置展示行号：命令模式下 set number
+- 设置展示相对行号: 命令模式下 set relativenumber
+- 移动
+  - 基本移动: jlik
+  - 移动一个单词: w
+  - 移动到文档开头: gg
+  - 移动到文档结尾: G
+  - 向上移动5行: 5j
+  - 移动到屏幕顶端: H
+  - 移动到屏幕中部: M
+  - 移动到屏幕底部: L
+  - 向下半页: ctrl + f
+  - 向上半页: ctrl + b
+  - 将光标所在处置为屏幕中部: zz
+  - 将光标移动到当前行的第一个x字符: fx
+  - 将光标移动到当前行的第3个x字符: 3fx
 
 ## 3 疑难杂症
 
