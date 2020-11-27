@@ -38,12 +38,11 @@ WARNING：某些命令在中文输入法下无法正常工作
 - 查找引用/转到定义
   - OS X: command + b
 - 重新加载 Window
-  - OS X: 
-    - ctrl + shift + P (open command palette)
-    - reload window
-  
+  - OS X:
+    - command + shift + P (open command palette)
+    - reload window  
 
-### 2.2 Gradle 日常操作
+### 2.2 Gradle 常用操作
 
 使用 gradle 命令来完成原本在 IDE 里面完成的操作
 
@@ -54,7 +53,9 @@ WARNING：某些命令在中文输入法下无法正常工作
 - 执行某些集成测试（支持通配符）: gradle integrationTest --tests xxx
 - 在本地启动服务: gradle bootRun
 
-### 2.3 编辑器常用操作（进阶）
+## 3 进阶需求
+
+### 3.1 编辑器进阶操作
 
 搭配 VIM 的编辑器常用操作
 
@@ -76,9 +77,15 @@ WARNING：某些命令在中文输入法下无法正常工作
   - 将光标移动到当前行的第一个x字符: fx
   - 将光标移动到当前行的第3个x字符: 3fx
 
-## 3 疑难杂症
+### 3.2 代码格式化
 
-### 3.1 莫名其妙的找不到引入类的问题
+- 打开命令窗口：command + shift + p
+- 执行指定格式配置文件位置命令：Java:Open Java formatter settings
+- 指定格式配置文件位置：/Users/annoyingbanana/IdeaProjects/cntehang/quality_assurance/config/checkstyle/checkstyle.xml
+
+## 4 疑难杂症
+
+### 4.1 莫名其妙的找不到引入类的问题
 
 解决方案:
 
