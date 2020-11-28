@@ -35,8 +35,10 @@ WARNING：某些命令在中文输入法下无法正常工作
   - Linux: ctrl + w
 - 反复横跳（在上一个浏览处和下一个浏览处之间切换
   - OS X: command + alt + 左箭头/右箭头
+  - Linux: ctrl + alt + -/+
 - 查找引用/转到定义
   - OS X: command + b
+  - Linux: F12
 - 重新加载 Window
   - OS X:
     - command + shift + P (open command palette)
