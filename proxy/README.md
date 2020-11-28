@@ -59,7 +59,11 @@ Not work with proxychains
 
 ## 6 Clash
 
-API docs:
+API Dashboard (clone and npm start locally):
+
+https://github.com/Dreamacro/clash-dashboard
+
+API can be used directly, API docs:
 
 - https://clash.gitbook.io/doc/restful-api/proxies
 
