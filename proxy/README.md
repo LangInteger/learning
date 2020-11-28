@@ -56,3 +56,18 @@ reboot
 Not work with proxychains
 
 - gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7890 clean build
+
+## 6 Clash
+
+API docs:
+
+- https://clash.gitbook.io/doc/restful-api/proxies
+
+Get all proxies information:
+
+- curl localhost:9090/proxies
+
+Switch proxy:
+
+- curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"[中转]香港 线路① V2"}'
+
