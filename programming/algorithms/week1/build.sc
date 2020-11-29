@@ -6,3 +6,7 @@ object unionfind extends JavaModule {
         else Agg.from(os.list(millSourcePath / "lib").map(PathRef(_)))
     }
 }
+
+object percolation extends JavaModule {
+    
+}
