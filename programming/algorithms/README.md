@@ -11,6 +11,14 @@
 
 ## Topics
 
+### HomeWork
+
+- [x] [Percolation](./week1/percolation)
+- [ ] [Deuqes and Randomized Queues]()
+- [ ] [Collinear Points]()
+- [ ] [8 Puzzle]()
+- [ ] [Kd-Trees]
+
 ### PART 1
 
 - data types 
