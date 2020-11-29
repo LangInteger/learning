@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
@@ -22,6 +19,8 @@ public class Percolation {
     private int header;
     private int tailer;
     private WeightedQuickUnionUF unionFind;
+    private WeightedQuickUnionUF unionFindNonBotoom;
+    private int unionFindNonBotoomSize;
 
     public Percolation(int n) {
         if (n <= 0) {
@@ -41,33 +40,39 @@ public class Percolation {
         tailer = n * n + 1;
 
         unionFind = new WeightedQuickUnionUF(n * n + 2);
+        unionFindNonBotoomSize = n * n + 1;
+        unionFindNonBotoom = new WeightedQuickUnionUF(unionFindNonBotoomSize);
     }
 
     private int locationToIndex(int row, int col) {
         return (row - 1) * size + (col - 1);
     }
 
-    private List<Integer> getNeighbors(int row, int col) {
-        List<Integer> result = new ArrayList<>();
+    private int[] getNeighbors(int row, int col) {
+        int[] neighbors = new int[4];
         if (row != 1) {
-            result.add(locationToIndex(row - 1, col));
+            neighbors[0] = locationToIndex(row - 1, col);
         } else {
             // Cells of first line is neighbor of header
-            result.add(header);
+            neighbors[0] = header;
         }
         if (row != size) {
-            result.add(locationToIndex(row + 1, col));
+            neighbors[1] = locationToIndex(row + 1, col);
         } else {
             // Cells of last line is neighbor of tailer
-            result.add(tailer);
+            neighbors[1] = tailer;
         }
         if (col != 1) {
-            result.add(locationToIndex(row, col - 1));
-        }    
-        if (col != size) {
-            result.add(locationToIndex(row, col + 1));
+            neighbors[2] = locationToIndex(row, col - 1);
+        } else {
+            neighbors[2] = -1;
         }
-        return result;
+        if (col != size) {
+            neighbors[3] = locationToIndex(row, col + 1);
+        } else {
+            neighbors[3] = -1;
+        }
+        return neighbors;
     }
 
     private void checkParams(int row, int col) {
@@ -78,15 +83,18 @@ public class Percolation {
 
     public void open(int row, int col) {
         checkParams(row, col);
-        openCellCount++;
         int index = locationToIndex(row, col);
         if (!cellStatus[index]) {
+            openCellCount = openCellCount + 1;
             cellStatus[index] = true;
-            List<Integer> neighbors = getNeighbors(row, col);
-            for (int i = 0; i < neighbors.size(); i++) {
-                int candidate = neighbors.get(i);
-                if (cellStatus[candidate]) {
+            int[] neighbors = getNeighbors(row, col);
+            for (int i = 0; i < neighbors.length; i++) {
+                int candidate = neighbors[i];
+                if (candidate != -1 && cellStatus[candidate]) {
                     unionFind.union(candidate, index);
+                    if (candidate < unionFindNonBotoomSize) {
+                        unionFindNonBotoom.union(candidate, index);
+                    }
                 }
             }
         }
@@ -101,7 +109,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         checkParams(row, col);
         int index = locationToIndex(row, col);
-        return unionFind.find(index) == unionFind.find(header);
+        return unionFindNonBotoom.find(index) == unionFindNonBotoom.find(header);
     }
 
     public int numberOfOpenSites() {
