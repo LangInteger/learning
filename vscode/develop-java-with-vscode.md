@@ -24,7 +24,8 @@ WARNING：某些命令在中文输入法下无法正常工作
   - OS X: command + p
   - Linux: ctrl + p
 - 召唤/关闭 Terminal
-  - ctrl + `
+  - Linux: ctrl + `
+  - OS X: command + j
 - 打开新 Terminal
   - ctrl + shift + `
 - 召唤/关闭左侧面板(必须先关闭 Terminal)
