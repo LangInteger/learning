@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  */
 public class Deque<Item> implements Iterable<Item> {
 
-    private static final int INIT_CAPACITY = 8;
+    private static final int INIT_CAPACITY = 4;
 
     private Item[] q;
     private int size;
@@ -19,7 +19,7 @@ public class Deque<Item> implements Iterable<Item> {
     public Deque() {
         q = (Item[]) new Object[INIT_CAPACITY];
         size = 0;
-        first = INIT_CAPACITY - 1;
+        first = 0;
         last = 0;
     }
 
@@ -36,9 +36,10 @@ public class Deque<Item> implements Iterable<Item> {
         Item[] copy = (Item[]) new Object[capacity];
         
         if (first < last) {
-            for (int i = first; i <= last; i++) {
-                copy[i] = q[i];
+            for (int i = first; i < last; i++) {
+                copy[i + capacity - q.length] = q[i];
             }
+            last = last + capacity - q.length;
         } else {
             for (int i = 0; i < last; i++) {
                 copy[i] = q[i];
@@ -47,8 +48,8 @@ public class Deque<Item> implements Iterable<Item> {
                 int index = capacity - q.length + i;
                 copy[index] = q[i];
             }
-            first = first + capacity - q.length;
         }
+        first = first + capacity - q.length;
         q = copy;
     }
 
@@ -125,6 +126,7 @@ public class Deque<Item> implements Iterable<Item> {
                 throw new NoSuchElementException();
             }
             Item item = q[(i + first) % q.length];
+            i++;
             return item;
         }
     }
@@ -159,6 +161,21 @@ public class Deque<Item> implements Iterable<Item> {
         deque.addLast("E");
 
         System.out.println(String.format("Is deque empty. Estimate: false Reality: %s", deque.isEmpty()));
-        System.out.println(String.format("Deque content. Estimate: DCBAE Reality: %s", deque.print()));
+        System.out.println(String.format("Deque content. Estimate: CBADE Reality: %s", deque.print()));
+        System.out.println(String.format("Deque size. Estimate: 5 Reality: %s", deque.size()));
+
+        deque.removeLast();
+        deque.removeLast();
+        deque.removeLast();
+
+        System.out.println(String.format("Deque content. Estimate: CB Reality: %s", deque.print()));
+
+        deque.removeLast();
+        deque.removeFirst();
+        deque.addFirst("HHH");
+
+        for (String str : deque) {
+            System.out.println(String.format("Deque content. Estimate: HHH Reality: %s", str));
+        }
     }
 }
