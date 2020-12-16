@@ -120,3 +120,8 @@ WARNING：某些命令在中文输入法下无法正常工作
 参考:
 
 - [Visual Studio Code - Java - Import Errors and More](https://stackoverflow.com/questions/45743779/visual-studio-code-java-import-errors-and-more)
+
+### 4.2 查找引用过慢
+
+当我遇到这个问题的时候，清除 Language Service 的存储很多次也无济于事。直到最后发现自己安装了差不多10+个 Java/Spring 相关的插件才明白过来，可能是由于安装的插件过多，遂卸载之，只保留了开头提到的两个插件，查找引用的速度就上来了。
+
