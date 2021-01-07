@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -28,6 +29,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public int size() {
+        new ArrayDeque<>()
         return size;
     }
 
