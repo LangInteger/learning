@@ -55,7 +55,7 @@ reboot
 
 Not work with proxychains
 
-- gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7890 clean build
+- gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7891 clean build
 
 ## 6 Clash
 
