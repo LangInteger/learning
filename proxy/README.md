@@ -60,7 +60,14 @@ Not work with proxychains
 
 If this doesn't work, check your socks proxy port.
 
-## 6 Clash
+## 6 Maven
+
+Almost the same with gradle
+
+- mvn clean install -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7891
+- ./mvnw clean install -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7891
+
+## 7 Clash
 
 API Dashboard (clone and npm start locally):
 
