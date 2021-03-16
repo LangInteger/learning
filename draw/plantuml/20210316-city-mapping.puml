@@ -1,0 +1,73 @@
+@startuml china online basic resource
+
+package "城市数据结构" {
+  entity "common_city" as common_city {
+    *id: number
+    --
+    *code: 城市代码
+    *level: 城市层级（地市级、县区级）
+  }
+
+  entity "train_city" as train_city {
+    *city_id: 对应通用城市ID
+    --
+    *hot_index: 热度
+  }
+
+  entity "flight_city" as flight_city {
+    *city_id: 对应通用城市ID
+    --
+    *hot_index: 热度
+    *iata_code: 城市三字码
+    --
+  }
+
+  entity "hotel_city" as hotel_city {
+    *city_id: 对应通用城市ID
+    --
+    *hot_index: 热度
+    --
+  }
+
+  entity "train_station" as train_station {
+    *id: number
+    --
+    *city_code: 对应通用城市代码
+    *code: 车站三字码
+    *was_hot: 热度
+    --
+  }
+
+  entity "common_airport" as common_airport {
+    *id: number
+    --
+    *city_id: 对应通用城市ID
+    *code: 机场三字码
+    --
+  }
+
+  entity "hotel_city_qiantao" as hotel_city_qiantao {
+    *code: 千淘城市代码
+    --
+  }
+  
+  entity "qiantao_hotel_city_map" as qiantao_hotel_city_map {
+    *id: 主键
+    --
+  }
+}
+
+common_city ||--|| train_city
+common_city ||--|| flight_city
+common_city ||--|| hotel_city
+
+common_city ||--o{ train_station
+common_city ||--o{ common_airport
+
+hotel_city ||--|| qiantao_hotel_city_map
+qiantao_hotel_city_map ||--|| hotel_city_qiantao
+
+train_city -[hidden]down-> train_station
+flight_city -[hidden]down-> common_airport
+
+@enduml
