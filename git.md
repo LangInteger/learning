@@ -42,3 +42,4 @@
 - 删除分支：git branch -d xxx
 - 强制删除分支((忽略该分支可能存在的的未合并到主分支的内容)：git branch -D xxx
 - 同步远端分支：git fetch -p
+- 查看历史记录：git log 或者 git log --oneline
