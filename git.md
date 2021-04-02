@@ -25,6 +25,9 @@
 - PS. 在第2步之前拉取远程分支内容到本地(可能别人改了推送了)：git pull。不然可能出现 git push失败的情况。
 
 ## 3 与远程仓库内容冲突 git push 失败的解决办法
+
+- 最简单的解决办法就是 git pull 一下再 git push，但是会留下 merge commit，比较无意义，可以通过下面的一系列命令来避免。
+
 1. git reset --soft HEAD^ 回退一个commit，相关文件的改动保留(如果本地有多个commit，则增加^符号数量一次回退多个commit)
 2. git add . 添加所有变更文件到暂存区
 3. git stash 将所有文件改动存放到一个【临时区】
