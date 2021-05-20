@@ -85,3 +85,8 @@ Switch proxy:
 
 - curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"[中转]香港 线路① V2"}'
 
+## 8 Wget 
+
+- `http_proxy=127.0.0.1:7890 wget http://www.example.com/`
+- `https_proxy=127.0.0.1:7890 wget https://www.example.com/`
+
