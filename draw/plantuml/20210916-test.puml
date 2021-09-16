@@ -1,0 +1,50 @@
+@startuml
+
+title 登月2042计划系统调用关系
+
+actor user as u
+participant 浏览器 as b
+
+box "WEB Browser" #LightBlue
+ participant b
+end box
+
+participant 秀外慧中大有前途前端服务 as bu
+
+box "FrontEnd" #LightGreen
+ participant bu
+end box
+
+participant 后端服务一 as t
+participant 后端服务二 as p
+
+box "Backend" #LightGoldenRodYellow
+  participant t
+  participant p
+end box
+
+u -> b: 登月
+b -> bu: 登月
+bu -> t: 搭建发射台
+t -> p: 搭建发射台
+p -> t: 搭建完毕
+t -> bu: 搭建完毕
+
+bu -> t: 点火
+t -> p: 点火
+p -> t: 着火
+t -> bu: 着火
+
+bu -> bu: 起飞
+
+alt 
+else 登月成功
+  bu -> t: 贺电
+  t -> p: 贺电
+  p -> t: 同贺
+  t -> bu: 同贺
+
+else 登月失败
+  bu -> bu: 默哀
+end
+@enduml
