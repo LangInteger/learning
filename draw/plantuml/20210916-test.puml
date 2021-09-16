@@ -1,6 +1,6 @@
 @startuml
 
-listfont Hi
+skinparam defaultFontName AR PL UKai CN
 
 title 登月2042计划系统调用关系
 
