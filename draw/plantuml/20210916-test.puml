@@ -39,10 +39,7 @@ bu -> bu: 起飞
 
 alt 
 else 登月成功
-  bu -> t: 贺电
-  t -> p: 贺电
-  p -> t: 同贺
-  t -> bu: 同贺
+
 
 else 登月失败
   bu -> bu: 默哀
