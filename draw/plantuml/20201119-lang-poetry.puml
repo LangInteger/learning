@@ -1,5 +1,7 @@
 @startuml
 
+skinparam defaultFontName AR PL UKai CN
+
 ' package "Yin" #LightBlue {
 '     card #LightBlue "资质鄙陋,常不敢妄言。\nShallow as I, Hard to Say Hi." as card1
 '     card #LightBlue "立身于世，靠谱与实干。\nCode as Hobby, From Day to Night." as card2
@@ -12,8 +14,6 @@
 
 ' card1 -[hidden]-> card2
 ' card3 -[hidden]-> card4
-
-skinparam defaultFontName AR PL UKai CN
 
 title 🚂写于机车启动与速度保持协会成立25周年之际\nFeeling Good at the 25th Anniversary of Locomotive Start and Speed Maintenance Association\n
 skinparam monochrome true
