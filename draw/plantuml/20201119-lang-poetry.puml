@@ -13,6 +13,8 @@
 ' card1 -[hidden]-> card2
 ' card3 -[hidden]-> card4
 
+skinparam defaultFontName AR PL UKai CN
+
 title 🚂写于机车启动与速度保持协会成立25周年之际\nFeeling Good at the 25th Anniversary of Locomotive Start and Speed Maintenance Association\n
 skinparam monochrome true
 skinparam defaultFontName Helvetica 
