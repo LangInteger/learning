@@ -2,6 +2,11 @@
 
 ## 1 InnoDb 如何解决幻读的问题
 
+其实真正来讲，mysql 并没有解决幻读，参考：
+
+- [InnoDB Repeatable Read隔离级别之大不同](http://mysql.taobao.org/monthly/2017/06/07/)
+- [Innodb 中 RR 隔离级别能否防止幻读？](https://github.com/Yhzhtk/note/issues/42)
+
 ### Lock
 
 - Record Locks: Record locks always lock index records, even if a table is defined with no indexes.
