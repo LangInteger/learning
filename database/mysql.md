@@ -2,10 +2,14 @@
 
 ## 1 InnoDb 如何解决幻读的问题
 
-其实真正来讲，mysql 并没有解决幻读，参考：
+如果非要嚼舌根，把当前读和快照读交替进行，mysql 会出现类似幻读的现象，参考：
 
 - [InnoDB Repeatable Read隔离级别之大不同](http://mysql.taobao.org/monthly/2017/06/07/)
 - [Innodb 中 RR 隔离级别能否防止幻读？](https://github.com/Yhzhtk/note/issues/42)
+
+但是 mysql 官方不认为这是幻读，而是一种正常现象，参考：
+
+- [mysql bug report - 63870](https://bugs.mysql.com/bug.php?id=63870): OP提出的是RR下不可重复读被违背的问题，最后 mysql 开发者给的例子兼顾了幻读出现的问题，开发者认为在当前读下出现这样的现象是没问题的。难道我们能因为当前读的存在就否认 mysql RR 没有解决不可重复读的问题？这种想法未免可笑
 
 ### Lock
 
