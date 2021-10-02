@@ -1,0 +1,64 @@
+@startuml
+
+cloud {
+    [GitHub] as github
+}
+
+cloud {
+    [PlantUML Proxy] as pproxy
+}
+
+package "Heroku" as heroku {
+
+    node "One Shot PlantUML" {
+        
+        frame "Web Scraping" as ws {
+            [login]
+            [verify]
+            [search]
+        }
+
+        frame "Client Server" as cs {
+            [html_render]
+        }
+
+        frame "Admin Server" as ads {
+            [login_api]
+            [verify_api]
+        }
+
+    }
+}
+
+actor User as user
+actor Admin as admin
+
+
+
+login -[hidden]> verify
+verify -[hidden]> search
+
+admin -r-> login_api: 1 login to github
+login_api -d-> login
+login --> github
+admin -r-> verify_api: 2 submit verification code
+verify_api -d-> verify
+verify --> github
+html_render -r-> search: 3 search random plantuml file
+search --> github
+html_render --> pproxy: 4 image rendering
+html_render --> user: 5 show result
+
+' scrape --> github : 1. scraping
+' scrape -r-> bucket : 2. put GitHub urls
+' bucket -d-> indexer : 3. notification
+' indexer -l-> queue : 4. put task
+' queue -r-> indexer : 5. execute task
+' indexer --> syntax_checker : 6. syntax check
+' indexer --> renderer : 7. rendering
+' indexer -u-> entity : 8. put
+' web -u-> entity : 9. get
+' web -d-> searchapi : 10. search
+' web -r-> user : 11. show web page
+
+@enduml
