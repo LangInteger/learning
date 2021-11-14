@@ -84,6 +84,7 @@ Get all proxies information:
 Switch proxy:
 
 - curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"[中转]香港 线路① V2"}'
+- curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"中转|A|香港①|✨"}'
 
 ## 8 Wget 
 
