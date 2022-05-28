@@ -1,0 +1,92 @@
+@startuml china online basic resource
+
+title Current Status
+
+package "1 working directory" {
+  entity "test1.txt" as test1 {
+  }
+
+  entity "test2.txt" as test2 {
+  }
+
+}
+
+package "2 repository" {
+
+  package ".git/refs" {
+    entity "master" as master {
+      *content: commit2 hash
+    }
+  }
+
+  package ".git/objects" {
+    package "blob files" {
+
+      entity "test1-blob1-hash" as test1blob1 {
+        *header: blob+size
+        *content: test content 1
+      }
+
+      entity "test1-blob2-hash" as test1blob2 {
+        *header: blob+size
+        *content: test content 1 modified
+      }
+
+      entity "test2-blob1-hash" as test2blob1 {
+        *header: blob+size
+        *content: test content 2
+      }
+    }
+
+    package "tree files" {
+      entity "tree1" as tree1 {
+        *record1: test1-blob1-hash
+        *record2: test2-blob1-hash
+      }
+      entity "tree2" as tree2 {
+        *record1: test1-blob2-hash
+        *record2: test2-blob1-hash
+      }
+    }
+
+    package "commit files" {
+      entity "commit1" as commit1 {
+        *tree: tree1
+        *parent: null
+        *auther: xxxx
+        *dexc: xxxx
+      }
+      entity "commit2" as commit2 {
+        *tree: tree2
+        *parent: commit1
+        *auther: xxxx
+        *dexc: xxxx
+      }
+    }
+  }
+
+  entity ".git/HEAD" as head {
+    *content: .git/refs/master
+  }
+}
+
+test1blob1 -- test1
+test1blob2 -- test1
+test2blob1 -- test2
+
+tree1 --> test1blob1
+tree1 --> test2blob1
+
+tree2 --> test1blob2
+tree2 --> test2blob1
+
+commit1 --> tree1
+commit2 --> tree2
+
+commit1 <--left commit2
+master --right> commit2
+
+
+head --up> master
+
+@enduml
