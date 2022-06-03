@@ -91,3 +91,6 @@ Switch proxy:
 - `http_proxy=127.0.0.1:7890 wget http://www.example.com/`
 - `https_proxy=127.0.0.1:7890 wget https://www.example.com/`
 
+## 9 NPM
+
+- npm install hexo-cli -g --registry https://registry.npm.taobao.org/
