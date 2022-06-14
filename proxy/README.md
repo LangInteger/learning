@@ -60,6 +60,10 @@ Not work with proxychains
 
 If this doesn't work, check your socks proxy port.
 
+Another problem: JDK 11 Bug [No PSK available. Unable to resume](https://stackoverflow.com/questions/52574050/javax-net-ssl-sslexception-no-psk-available-unable-to-resume)
+
+- gradle -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7890 -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2 clean build
+
 ## 6 Maven
 
 Almost the same with gradle
