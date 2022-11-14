@@ -98,3 +98,15 @@ Switch proxy:
 ## 9 NPM
 
 - npm install hexo-cli -g --registry https://registry.npm.taobao.org/
+
+## 10 SSH
+
+Recording to [SO_Thread - Connect with SSH through a proxy](https://stackoverflow.com/a/19162114/9304616), specify ssh config as follows:
+
+```text
+Host archat-api-dev
+    HostName a.b.c.d
+    ProxyCommand nc -X connect -x 127.0.0.1:7890 %h %p
+    User ec2-user
+    Port 22
+```
