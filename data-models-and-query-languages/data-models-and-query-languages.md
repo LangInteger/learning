@@ -96,7 +96,7 @@ Hint: Draw ascii picture to show the timeline of relational model, document mode
 
 ## Schema on read
 
-Add firt_name column
+Add first_name column
 
 ```java
 if (user && user.name && !user.first_name) {
@@ -178,7 +178,7 @@ Hint: try to use ascii picture to describe how hibernate implement relation obje
 
 ## Slow online DDL
 
-Add firt_name column
+Add first_name column
 
 ```sql
 ALTER TABLE users ADD COLUMN first_name text;
