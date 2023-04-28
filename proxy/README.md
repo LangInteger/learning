@@ -90,6 +90,30 @@ Switch proxy:
 - curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"[中转]香港 线路① V2"}'
 - curl -X PUT localhost:9090/proxies/Proxy -d '{"name":"中转|A|香港①|✨"}'
 
+setup detect best node automatically, in `xx.yaml` config file, add the following to `proxy-groups`:
+
+```text
+  - 
+    name: Auto
+    type: url-test
+    proxies:
+      - '深港专线[Trojan][倍率:2.5]'
+      - '深港专线2[Trojan][倍率:2.5]'
+      - '深港专线3[Trojan][倍率:2.5]'
+      - '深港专线6[Trojan][倍率:2.5]'
+      - '深港专线7[Trojan][倍率:2.5]'
+      - '深港专线8[倍率:2.5]'
+      - '深港专线转香港BGP[M][倍率:2.5]'
+      - '深港专线转香港BGP2[M][倍率:2.5]'
+      - '深港专线转香港BGP3[M][Trojan][倍率:2.5]'
+      - '深港专线转香港BGP4[M][Trojan][倍率:2.5]'
+      - '深港专线转香港BGP7[M][Trojan][倍率:2.5]'
+      - '深港专线转香港BGP8[M][Trojan][倍率:2.5]'
+      - '深港专线转香港BGP9[M][倍率:2.5]'
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+```
+
 ## 8 Wget 
 
 - `http_proxy=127.0.0.1:7890 wget http://www.example.com/`
