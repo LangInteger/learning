@@ -13,21 +13,86 @@
 ' card1 -[hidden]-> card2
 ' card3 -[hidden]-> card4
 
-title 🚂写于机车启动与速度保持协会成立25周年之际\nFeeling Good at the 25th Anniversary of Locomotive Start and Speed Maintenance Association\n
-skinparam monochrome true
+' title 🚂写于机车启动与速度保持协会成立25周年之际\nFeeling Good at the 25th Anniversary of Locomotive Start and Speed Maintenance Association\n
+' skinparam monochrome true
 ' skinparam defaultFontName Helvetica 
 ' skinparam defaultFontName AR PL UKai CN
-|😶|
-:资质鄙陋，常不敢妄言。
-Shallow as I, Hard to Say Hi.;
-|🌒|
-:闲敲代码,度日有月悬。
-Code as Hobby, From Day to Night.;
-|🔨|
-:立身于世，靠谱与实干。
-Devotion and Working, Are What to Stand by.;
-|✨|
-:与君共睹，创事业斐然。
-Build a Miracle, With You and I.;
+' |😶|
+' :资质鄙陋，常不敢妄言。
+' Shallow as I, Hard to Say Hi.;
+' |🌒|
+' :闲敲代码,度日有月悬。
+' Code as Hobby, From Day to Night.;
+' |🔨|
+' :立身于世，靠谱与实干。
+' Devotion and Working, Are What to Stand by.;
+' |✨|
+' :与君共睹，创事业斐然。
+' Build a Miracle, With You and I.;
+
+
+
+package "LangInteger" as p_langinteger {
+
+  class "Tech Stack" as c_ts
+  class "Poetry" as c_poetry
+  class "Contact" as c_contact
+  class "Research" as c_research
+}
+
+c_ts --|> p_techstack
+c_poetry --|> p_poetry
+c_contact --|> p_contact 
+c_research --|> p_research
+
+p_techstack -[hidden]down-> p_poetry
+p_research -[hidden]down-> p_contact
+
+p_research -[hidden]down-> p_langinteger
+
+package "Tech Stack" as p_techstack {
+  class "Spring Framework" as c_sf
+  class "Vertx" as c_v
+  class "Flutter" as c_f
+  class "React" as c_r
+}
+
+c_sf -[hidden]right-> c_v
+c_v -[hidden]right-> c_f
+c_f -[hidden]right-> c_r
+
+package "Poetry" as p_poetry {
+  class "Self Introduction" < 2021 > {
+    - author: LangInteger
+    -- lines --
+    + Shallow as I, Hard to Say Hi.
+    + 资质鄙陋，常不敢妄言。
+    + Code as Hobby, From Day to Night.
+    + 闲敲代码，度日有月悬。
+    + Devotion and Working, Are What to Stand by.
+    + 立身于世，靠谱与实干。
+    + Build a Miracle, With You and I.
+    + 与君共睹，创事业斐然。
+  }
+}
+
+package "Contact" as p_contact {
+  class StackOverflow {
+    - uname: Lebecca
+  }
+  class Github {
+    - uname: LangInteger
+  }
+  class Linkedin {
+    - uname: LangInteger
+  }
+}
+
+Linkedin -[hidden]right-> StackOverflow
+StackOverflow -[hidden]right-> Github
+
+package "Research" as p_research {
+  class "Type Theory" as c_type_theory
+}
 
 @enduml
