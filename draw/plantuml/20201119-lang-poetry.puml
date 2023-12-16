@@ -30,7 +30,8 @@
 ' :与君共睹，创事业斐然。
 ' Build a Miracle, With You and I.;
 
-
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
 
 package "LangInteger" as p_langinteger {
 
