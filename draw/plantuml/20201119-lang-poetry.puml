@@ -93,7 +93,9 @@ Linkedin -[hidden]right-> StackOverflow
 StackOverflow -[hidden]right-> Github
 
 package "Research" as p_research {
+  class "Programming Language" as c_programming_language
   class "Type Theory" as c_type_theory
+  class "Separation Logic" as c_separation_logic
 }
 
 @enduml
